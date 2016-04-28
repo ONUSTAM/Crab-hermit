@@ -10,4 +10,5 @@ $(function() {
       .map(function(x) {return x.length})
       .filter(function(n) {return n >= 2})
       .subscribe(function(n) {console.log(n + "click")});
+
 });

@@ -6,7 +6,8 @@
     "modernizr": "~2.8.1",
     "jquery": "^2.2.3",
     "underscore": "^1.8.3",
-    "rxjs-jquery": "^1.1.7"
+    "rxjs-jquery": "^1.1.7",
+    "is_js": "^0.7.6"
   },
   "overrides": {
     "bootstrap-sass": {
