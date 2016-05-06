@@ -1,8 +1,4 @@
-$(function(){
   "use strict";
-  //To stydy 'is.js'
-  // var ar = is.array([]);
-  // console.log(ar);
 
   function uAgent() {
     return {
@@ -57,6 +53,3 @@ $(function(){
       return '???';
     }
   };
-
-  console.log(uAgent());
-});

@@ -1,8 +1,21 @@
+
+// init
 $(function() {
-  console.log('\'Allo \'Allo!');
-  _.each([1, 2, 3], function(val) {
-    console.log(val);
+
+  // common
+  dispatcher("^/$",function(){
+      $(function(){
+          //
+      });
   });
+
+  // logger
+  dispatcher(conf.viewPath.logger, function(){
+    $(function(){
+      loggerCtrl();
+    });
+  });
+
 
   var clickStream = Rx.Observable.fromEvent(document, "mouseup");
   clickStream
@@ -11,4 +24,7 @@ $(function() {
       .filter(function(n) {return n >= 2})
       .subscribe(function(n) {console.log(n + "click")});
 
+
+  // 各画面によって出しわけする
+  dispatcher(location.pathname);
 });

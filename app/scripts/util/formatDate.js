@@ -1,8 +1,8 @@
 
 /*
-formatDate(new Date('2014/1/23'), 'MM月DD日'); // 01月23日
+FormatDate(new Date('2014/1/23'), 'MM月DD日'); // 01月23日
 */
-var FormatDate = function(date, format) {
+function FormatDate (date, format) {
 	if (date == null) {
 		return "";
 	}
