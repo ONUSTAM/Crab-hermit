@@ -10,45 +10,45 @@
   function isBrowser () {
     if ( is.ie() ){
     } else if ( is.chrome() ){
-      return 'chrome';
+      return 'Chrome';
     } else if ( is.firefox() ){
-      return 'firefox';
+      return 'Firefox';
     } else if ( is.opera() ){
-      return 'opera';
+      return 'Opera';
     } else if ( is.safari() ){
-      return 'safari';
+      return 'Safari';
     } else {
       return '???';
     }
   };
   function isOs () {
     if ( is.ios() ) {
-      return 'ios';
+      return 'iOS';
     } else if ( is.iphone() ) {
-      return 'iphone';
+      return 'iPhone';
     } else if ( is.ipad() ) {
-      return 'ipad';
+      return 'iPad';
     } else if ( is.ipod() ) {
-      return 'ipod';
+      return 'iPod';
     } else if ( is.android() ) {
-      return 'android';
+      return 'Android';
     } else if ( is.androidPhone() ) {
-      return 'androidPhone';
+      return 'AndroidPhone';
     } else if ( is.windows() ) {
-      return 'windows';
+      return 'Windows';
     } else if ( is.mac() ) {
-      return 'mac';
+      return 'Mac';
     } else if ( is.linux() ) {
-      return 'linux';
+      return 'Linux';
     } else {
       return '???';
     }
   };
   function isType () {
     if ( is.desktop() ) {
-      return 'desktop';
+      return 'Desktop';
     } else if ( is.mobile() ) {
-      return 'mobile';
+      return 'Mobile';
     } else {
       return '???';
     }
