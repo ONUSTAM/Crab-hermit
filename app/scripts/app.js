@@ -1,7 +1,6 @@
 
 // init
 $(function() {
-
   // common
   dispatcher("^/$",function(){
       $(function(){

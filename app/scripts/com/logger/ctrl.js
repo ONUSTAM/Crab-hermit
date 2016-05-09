@@ -10,7 +10,6 @@ function loggerCtrl () {
         $('<p/>')
         .append(
           $('<span/>')
-            .addClass('h6')
             .text(key + ' : ')
         )
         .append(
@@ -21,12 +20,15 @@ function loggerCtrl () {
   };
 
   function outuptEatch (Id, Obj, outLog) {
-    _.each(Obj, function(key, val) {
+    _.each(Obj, function(val, key) {
       outLog(Id, key, val);
     });
   };
 
+  // init
   $(function(){
     outuptEatch( '#uAgent', uAgent(), outLogKV );
+
+    DigitalClock('#digitalClock');
   });
 };
