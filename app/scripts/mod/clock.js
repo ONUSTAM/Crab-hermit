@@ -1,7 +1,7 @@
 function DigitalClock (Id) {
 
   function setTime () {
-    $(Id).text( moment().format('YYYY/MM/DD HH:mm:ss dddd') );
+    $(Id).text( moment().format('YYYY/MM/DD HH:mm:ss ddd') );
   };
 
   var source = Rx.Observable.create(function (observer) {

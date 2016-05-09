@@ -9,9 +9,9 @@ $(function() {
   });
 
   // logger
-  dispatcher(conf.viewPath.logger, function(){
+  dispatcher(conf.viewPath.components, function(){
     $(function(){
-      loggerCtrl();
+      componentsCtrl();
     });
   });
 

@@ -1,7 +1,7 @@
 var conf = {
 
   viewPath: {
-    logger: 'logger.html'
+    components: 'components.html'
   }
 
 };

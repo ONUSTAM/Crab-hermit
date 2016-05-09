@@ -1,4 +1,4 @@
-function loggerCtrl () {
+function componentsCtrl () {
 
   function outLogKV (Id, key, val) {
     // <div id="[Id]"><p>
@@ -7,7 +7,7 @@ function loggerCtrl () {
     // </p></div>
     $(Id)
       .append(
-        $('<p/>')
+        $('<span/>')
         .append(
           $('<span/>')
             .text(key + ' : ')
@@ -15,6 +15,9 @@ function loggerCtrl () {
         .append(
           $('<span/>')
             .text(val)
+        )
+        .append(
+          $('<br/>')
         )
       );
   };
