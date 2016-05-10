@@ -8,7 +8,8 @@
     "underscore": "^1.8.3",
     "rxjs-jquery": "^1.1.7",
     "is_js": "^0.7.6",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "foundation-icon-fonts": "*"
   },
   "overrides": {
     "bootstrap-sass": {

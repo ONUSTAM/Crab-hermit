@@ -8,13 +8,19 @@ $(function() {
       });
   });
 
-  // logger
+  // components
   dispatcher(conf.viewPath.components, function(){
     $(function(){
       componentsCtrl();
     });
   });
-
+  //splitpaLayout
+  dispatcher(conf.viewPath.splitpaLayout, function(){
+    $(function(){
+      console.log('a');
+      SplitPane('div.split-pane')
+    });
+  });
 
   var clickStream = Rx.Observable.fromEvent(document, "mouseup");
   clickStream

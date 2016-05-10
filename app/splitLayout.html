@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crab hermit</title>
+    <title>Ch-splitlay</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -28,44 +28,79 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="/components.html"><span class="glyphicon glyphicon-wrench"></span> Components</a></li>
-          <li><a href="/splitLayout.html">Split Layout</a></li>
-        </ul>
-        <h3 class="text-muted">Crab hermit</h3>
-      </div>
+    <div class="header split-layout">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="/components.html"><span class="glyphicon glyphicon-wrench"></span> Components</a></li>
+        <li class="active"><a href="/splitLayout.html">Split Layout</a></li>
+      </ul>
+      <h3 class="text-muted">Crab hermit</h3>
+    </div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
+    <div class="container-fulid split-layout">
+      <div class="plL">
+        <div class="panel">
+  				<div class="panel-body">
+            <p><input type="text" class="form-control" placeholder="abc"></p>
+            <p><input type="text" class="form-control" placeholder="abc"></p>
+            <hr>
+            <p><input type="text" class="form-control" placeholder="abc"></p>
+            <p><button class="btn btn-block btn-primary">search</button></p>
+          </div>
+        </div>
+        <div class="panel">
+  				<div class="panel-body">
+            <p><input type="text" class="form-control" placeholder="abc"></p>
+            <p><select name="" id="" class="form-control">
+              <option value="">-</option>
+              <option value="">status A</option>
+              <option value="">status B</option>
+              <option value="">status C</option>
+            </select></p>
+            <div class="row">
+              <p class="col-xs-8">
+                <button class="btn btn-block btn-primary">search</button>
+              </p>
+              <p class="col-xs-4">
+                <button class="btn btn-block">clear</button>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
+      <div class="plC">
+        <div class="split-pane fixed-top">
+            <div class="split-pane-component" id="top-component">
+                This is the left component
+            </div>
+            <div class="split-pane-divider" id="split-divider"></div>
+            <div class="split-pane-component" id="bottom-component">
+                This is the right component
+                <button onclick="$('div.split-pane').splitPane('firstComponentSize', 0);">Collapse first component</button>
+            </div>
+        </div>
+      </div>
+      <div class="plR">
+        <div class="panel">
+  				<div class="panel-body">
+            <p><button class="btn btn-block btn-success">Create</button></p>
+            <p><button class="btn btn-block">Cancel</button></p>
+            <p><button class="btn btn-block btn-danger">Delete</button></p>
+          </div>
+        </div>
+        <div class="panel">
+  				<div class="panel-body">
+            <p><button class="btn btn-block btn-success">Update</button></p>
+            <p><button class="btn btn-block">Cancel</button></p>
+            <p><button class="btn btn-block btn-danger">Delete</button></p>
+          </div>
+        </div>
       </div>
     </div>
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ch - logger</title>
+  <title>Ch-components</title>
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/foundation-icon-fonts/foundation-icons.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -26,10 +27,10 @@
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li><a href="/">Home</a></li>
+        <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-        <li class="active"><a href="/components.html">Components</a></li>
+        <li class="active"><a href="/components.html"><span class="glyphicon glyphicon-wrench"></span> Components</a></li>
       </ul>
       <h3 class="text-muted">Crab hermit</h3>
     </div>
@@ -41,9 +42,24 @@
         <h4>DigitalClock(Id)</h4>
         <p id="digitalClock"></p>
       </div>
+      <div class="col-lg-6">
+        <h4>mixSpin</h4>
+        <p><span class="glyphicon glyphicon-refresh spin"></span></p>
+      </div>
+
     </div>
 
     <div class="footer">
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <p><a target="_blank" href="https://github.com/ONUSTAM/Crab-hermit"><i class="fi-social-github"></i> GitHub</a></p>
+        </div>
+        <div class="col-lg-6">
+          <p><a target="_blank" href="http://zurb.com/playground/foundation-icon-fonts-3"><i class="fi-social-zurb"></i> foundation icon</a></p>
+          <p><a target="_blank" href="http://momentjs.com/"><i class="fi-clock"></i> momentjs</a></p>
+        </div>
+      </div>
+
       <p>♥ from the Yeoman team</p>
     </div>
 
@@ -76,10 +92,12 @@
   <!-- endbuild -->
 
   <!-- build:js scripts/app.js -->
+  <script src="scripts/lib/split-pane.min.js"></script>
   <script src="scripts/util/dispatcher.js"></script>
   <script src="scripts/util/uAgent.js"></script>
   <script src="scripts/util/formatDate.js"></script>
   <script src="scripts/mod/clock.js"></script>
+  <script src="scripts/mod/splitPane.js"></script>
   <script src="scripts/com/components/ctrl.js"></script>
   <script src="scripts/com/config.js"></script>
   <script src="scripts/app.js"></script>

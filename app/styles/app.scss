@@ -1,6 +1,7 @@
 @import "com/valiable";
 @import "com/rewrite-bootstrap";
-
+@import "lib/split-pane";
+@import "mix/mixSpin";
 @import "com/foundation";
 @import "components/button";
 @import "components/checkbox";
@@ -8,5 +9,6 @@
 @import "components/selectbox";
 @import "layouts/base";
 @import "layouts/oneset";
+@import "layouts/splitLayout";
 // @import "lib/";
 @import "sample";

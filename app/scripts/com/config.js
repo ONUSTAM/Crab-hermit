@@ -1,7 +1,8 @@
 var conf = {
 
   viewPath: {
-    components: 'components.html'
+    components: 'components.html',
+    splitpaLayout: 'splitLayout.html'
   }
 
 };
