@@ -1,7 +1,7 @@
 // <p id="inputDateLt">
-//   <input type="text" style="width:80px" id="yr">
-//   <input type="text" style="width:40px" id="mn">
-//   <input type="text" style="width:40px" id="dy">
+//   <input type="text" id="yr">
+//   <input type="text" id="mn">
+//   <input type="text" id="dy">
 // </p>
 
 function inputDateLT (Id) {

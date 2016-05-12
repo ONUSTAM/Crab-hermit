@@ -8,6 +8,11 @@
     text-align: right;
     padding: 2px;
 
+    &:focus {
+      outline: none;
+      background-color: #ddd;
+    }
+
     &.yr {
       width: 40px;
     }
