@@ -25,63 +25,28 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="/inputDateLt.html">inputDateLT</a></li>
-        <li class="active"><a href="/components.html"><span class="glyphicon glyphicon-wrench"></span> Components</a></li>
-      </ul>
-      <h3 class="text-muted">Crab hermit</h3>
-    </div>
 
     <div class="row marketing">
-      <div class="col-lg-6">
-        <h4>uAgent()</h4>
-        <p id="uAgent"></p>
-        <h4>DigitalClock(Id)</h4>
-        <p id="digitalClock"></p>
+      <div class="col-lg-12">
+        <input type="date" id="typeDate" min="1000-1-1" max="9999-12-31"/>
+        <p>val: <span id="typeDateA"></span></p>
+        <button id="btn_typeDate">click</button>
       </div>
-      <div class="col-lg-6">
-        <h4>mixSpin</h4>
-        <p><span class="glyphicon glyphicon-refresh spin"></span></p>
-      </div>
-      <div class="col-lg-6">
-        <h4>RXJS</h4>
-        <p>click + [alt]key -> console.log</p>
-        <p><button id="btn" class="btn">click</button></p>
-        <p>
-          <h1 contenteditable="true">TEXT</h1>
-          <p class="text">
-            <input type="text" placeholder="Text" value="TEXT"/>
-          </p>
-          <p class="size">
-            <input type="number" placeholder="Size" step="10" value="40"/>
-          </p>
-          <p class="color">
-            <input class="form-control" title="color" type="color" placeholder="Color" value="#dddddd"/>
-          </p>
-          <p id="combined"></p>
-        </p>
-        <p><a href="http://liginc.co.jp/web/js/151272" target="_blank">study</a></p>
-      </div>
-    </div>
 
-    <div class="footer">
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <p><a target="_blank" href="https://github.com/ONUSTAM/Crab-hermit"><i class="fi-social-github"></i> GitHub</a></p>
-        </div>
-        <div class="col-lg-6">
-          <p><a target="_blank" href="http://zurb.com/playground/foundation-icon-fonts-3"><i class="fi-social-zurb"></i> foundation icon</a></p>
-          <p><a target="_blank" href="http://momentjs.com/"><i class="fi-clock"></i> momentjs</a></p>
+      <hr>
+
+      <div class="col-lg-12">
+        <h4>sample</h4>
+        <div>
+          <p id="inputDateLt" class="inputDateLt">
+            <input type="text" class="yr" size="4" maxlength="4">/
+            <input type="text" class="mn" size="2" maxlength="2">/
+            <input type="text" class="dy" size="2" maxlength="2">
+          </p>
+          <p>val:<span id="inputDateLt_val"></span><br/><button id="btn_inputDateLt">click</button></p>
         </div>
       </div>
-
-      <p>♥ from the Yeoman team</p>
     </div>
-
   </div>
 
   <!-- build:js scripts/vendor.js -->

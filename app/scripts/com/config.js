@@ -4,7 +4,8 @@ var conf = {
 
   viewPath: {
     components: 'components.html',
-    splitpaLayout: 'splitLayout.html'
+    splitpaLayout: 'splitLayout.html',
+    inputDateLt: 'inputDateLt.html'
   }
 
 };

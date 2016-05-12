@@ -4,9 +4,9 @@
 
   // common
   dispatcher("^/$",function(){
-      $(function(){
-          //
-      });
+    $(function(){
+      //
+    });
   });
 
   // components
@@ -20,6 +20,21 @@
   dispatcher(conf.viewPath.splitpaLayout, function(){
     $(function(){
       SplitPane('div.split-pane');
+    });
+  });
+
+  // inputDateLt
+  dispatcher(conf.viewPath.inputDateLt, function(){
+    $(function(){
+      var idlt = new inputDateLT('#inputDateLt');
+
+      $('#btn_inputDateLt').on('click', function(){
+        $('#inputDateLt_val').text( idlt.getVal() );
+      });
+
+      $('#btn_typeDate').on('click', function(){
+        $('#typeDateA').text( $('#typeDate').val() );
+      });
     });
   });
 
