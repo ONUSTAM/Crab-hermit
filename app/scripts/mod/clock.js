@@ -25,7 +25,7 @@ function DigitalClock (Id) {
   });
 
   var subscription = source.subscribe(
-      function (x) {
+      function () {
           // console.log('onNext: ' + );
           setTime();
       },

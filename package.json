@@ -38,6 +38,12 @@
         2,
         "single"
       ]
+    },
+    "globals": {
+      "$": false,
+      "_": false,
+      "is": false,
+      "Rx": false
     }
   }
 }

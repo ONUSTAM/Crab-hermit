@@ -59,7 +59,7 @@ function componentsCtrl () {
       Rx.Observable.fromEvent(elem, eType).subscribe(function (e) {
         subject.onNext(e.target.value);
       });
-    };
+    }
 
     text.combineLatest(size, color, function (eText, eSize, eColor) {
       return 'eText: ' + eText + '<br>eSize: ' + eSize + 'px<br>eColor: ' + eColor;
@@ -91,7 +91,7 @@ function componentsCtrl () {
   }
 
   // init
-  $(function(){
+  (function(){
     outuptEatch( '#uAgent', uAgent(), outLogKV );
 
     DigitalClock('#digitalClock');
@@ -99,5 +99,5 @@ function componentsCtrl () {
     clickAltkey();
 
     stylePicker();
-  });
+  })();
 }

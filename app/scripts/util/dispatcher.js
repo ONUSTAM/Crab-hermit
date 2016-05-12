@@ -16,4 +16,5 @@ function dispatcher (path, func) {
 //     // XXXXX();
 //   });
 // });
+// 各画面によって出しわけする
 //dispatcher(location.pathname);
