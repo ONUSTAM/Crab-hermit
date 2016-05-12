@@ -1,6 +1,8 @@
+'use strict';
 
 // init
 $(function() {
+
   // common
   dispatcher("^/$",function(){
       $(function(){
@@ -18,7 +20,7 @@ $(function() {
   dispatcher(conf.viewPath.splitpaLayout, function(){
     $(function(){
       console.log('a');
-      SplitPane('div.split-pane')
+      SplitPane('div.split-pane');
     });
   });
 

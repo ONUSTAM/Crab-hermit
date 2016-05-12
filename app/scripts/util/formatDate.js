@@ -1,10 +1,10 @@
-
+'use strict';
 /*
 FormatDate(new Date('2014/1/23'), 'MM月DD日'); // 01月23日
 */
 function FormatDate (date, format) {
 	if (date == null) {
-		return "";
+		return '';
 	}
 
 	date = new Date(date);
@@ -23,4 +23,4 @@ function FormatDate (date, format) {
    }
 
 	return format;
-};
+}

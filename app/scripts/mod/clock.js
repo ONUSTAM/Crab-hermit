@@ -1,8 +1,9 @@
+'use strict';
 function DigitalClock (Id) {
 
   function setTime () {
     $(Id).text( moment().format('YYYY/MM/DD HH:mm:ss ddd') );
-  };
+  }
 
   var source = Rx.Observable.create(function (observer) {
       // `onNext`を使って、`num`を1000ミリ秒ずつobserverにプッシュする
@@ -39,4 +40,4 @@ function DigitalClock (Id) {
   $(function(){
     setTime();
   });
-};
+}

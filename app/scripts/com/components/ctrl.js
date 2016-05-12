@@ -1,3 +1,5 @@
+'use strict';
+
 function componentsCtrl () {
 
   function outLogKV (Id, key, val) {
@@ -20,13 +22,13 @@ function componentsCtrl () {
           $('<br/>')
         )
       );
-  };
+  }
 
   function outuptEatch (Id, Obj, outLog) {
     _.each(Obj, function(val, key) {
       outLog(Id, key, val);
     });
-  };
+  }
 
   function stylePicker () {
     var $color, $combined, $h1, $size, $text, bind, color, size, text;
@@ -59,8 +61,8 @@ function componentsCtrl () {
       });
     };
 
-    text.combineLatest(size, color, function (text, size, color) {
-      return "text: " + text + "<br>Size: " + size + "px<br>Color: " + color;
+    text.combineLatest(size, color, function (eText, eSize, eColor) {
+      return 'eText: ' + eText + '<br>eSize: ' + eSize + 'px<br>eColor: ' + eColor;
       }).subscribe(function (val) {
         return $combined.html(val);
       });
@@ -68,17 +70,17 @@ function componentsCtrl () {
     bind('keyup', $text, text);
     bind('keyup change', $size, size);
     bind('change', $color, color);
-  };
+  }
 
-  function click_Altkey () {
-    var clickStream = Rx.Observable.fromEvent(document, "mouseup");
+  function clickAltkey () {
+    var clickStream = Rx.Observable.fromEvent(document, 'mouseup');
     clickStream
         .buffer(clickStream.throttle(250))
-        .map(function(x) {return x.length})
-        .filter(function(n) {return n >= 2})
-        .subscribe(function(n) {console.log(n + "click")});
+        .map(function(x) {return x.length; })
+        .filter(function(n) {return n >= 2; })
+        .subscribe(function(n) {console.log(n + 'click'); });
 
-    var btnClicks = Rx.Observable.fromEvent($('#btn'), "click");
+    var btnClicks = Rx.Observable.fromEvent($('#btn'), 'click');
     btnClicks
         .filter(function (value) {
             return value.altKey;
@@ -94,8 +96,8 @@ function componentsCtrl () {
 
     DigitalClock('#digitalClock');
 
-    click_Altkey();
+    clickAltkey();
 
     stylePicker();
   });
-};
+}
