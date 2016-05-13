@@ -3,14 +3,14 @@
 //   <input type="text" id="mn">
 //   <input type="text" id="dy">
 // </p>
-
-function inputDateLT (Id) {
+function inputDateLT (Id, params) {
   'use strict';
 
-  var idltId = Id;
-  var yr = idltId + ' .yr';
-  var mn = idltId + ' .mn';
-  var dy = idltId + ' .dy';
+  var YEAR_FOCUS_LEFT = 1000;
+  var MONTH_FOCUS_LEFT = 2;
+  var yr = Id + ' .yr';
+  var mn = Id + ' .mn';
+  var dy = Id + ' .dy';
 
 
   // move left
@@ -33,19 +33,13 @@ function inputDateLT (Id) {
     return false;
   }
 
-  // count +
-  function countUP (keycode, Id) {
+  // count +-
+  function countUpDn (keycode, Id) {
     if(keycode === 38 && isNum( $(Id).val() )) {
       $(Id).val( Number($(Id).val()) + 1 );
       $(Id).focus();
       return true;
-    }
-    return false;
-  }
-
-  //count -
-  function countDN (keycode, Id) {
-    if(keycode === 40 && isNum($(Id).val()) && Number($(Id).val()) > 1 ) {
+    } else if( keycode === 40 && isNum($(Id).val()) && Number($(Id).val()) > 1 ) {
       $(Id).val( Number($(Id).val()) - 1 );
       $(Id).focus();
       return true;
@@ -53,6 +47,7 @@ function inputDateLT (Id) {
     return false;
   }
 
+  // retuen = boolean
   function isNum (val) {
     var pattern = /^\d*$/;
     return pattern.test(val);
@@ -82,35 +77,30 @@ function inputDateLT (Id) {
   $(yr)
     .on('keyup', function(_e){
       if( changeFocusL(_e.keyCode, mn) ) { return; }
-      if( countUP(_e.keyCode, yr) ) { return; }
-      if( countDN(_e.keyCode, yr) ) { return; }
+      if( countUpDn(_e.keyCode, yr) ) { return; }
 
-      moveFoucs( $(this).val(), 1000, mn);
-    })
-    .on('keydown', function(){
+      moveFoucs( $(this).val(), YEAR_FOCUS_LEFT, mn);
     })
     .on('focus', function(){
-      $(this).select()
+      $(this).select();
     });
 
   $(mn)
     .on('keyup', function(_e){
       if( changeFocusL(_e.keyCode, dy) ) { return; }
       if( changeFocusR(_e.keyCode, yr) ) { return; }
-      if( countUP(_e.keyCode, mn) ) { return; }
-      if( countDN(_e.keyCode, mn) ) { return; }
+      if( countUpDn(_e.keyCode, mn) ) { return; }
 
-      moveFoucs( $(this).val(), 2, dy);
+      moveFoucs( $(this).val(), MONTH_FOCUS_LEFT, dy);
     })
     .on('focus', function(){
-      $(this).select()
+      $(this).select();
     });
 
   $(dy)
     .on('keyup', function(_e){
       if( changeFocusR(_e.keyCode, mn) ) { return; }
-      if( countUP(_e.keyCode, dy) ) { return; }
-      if( countDN(_e.keyCode, dy) ) { return; }
+      if( countUpDn(_e.keyCode, dy) ) { return; }
     })
     .on('focus', function(){
       $(this).select();
