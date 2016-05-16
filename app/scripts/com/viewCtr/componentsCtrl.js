@@ -24,9 +24,9 @@ function componentsCtrl () {
       );
   }
 
-  function outuptEatch (Id, Obj, outLog) {
+  function outuptEatch (Id, Obj, outputLog) {
     _.each(Obj, function(val, key) {
-      outLog(Id, key, val);
+      outputLog(Id, key, val);
     });
   }
 
