@@ -90,6 +90,7 @@ function componentsCtrl () {
         });
   }
 
+
   // init
   (function(){
     outuptEatch( '#uAgent', uAgent(), outLogKV );
@@ -99,5 +100,6 @@ function componentsCtrl () {
     clickAltkey();
 
     stylePicker();
+
   })();
 }
