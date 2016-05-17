@@ -1,0 +1,14 @@
+#top-component {
+  height: 20em;
+  min-height: 5em;
+  padding: 8px;
+}
+#split-divider {
+  background-color: #fff;
+  border-top: 1px solid $theme;
+  border-bottom: 1px solid $theme;
+  height: 5px;
+}
+#bottom-component {
+  padding: 8px;
+}

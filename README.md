@@ -23,7 +23,7 @@ scripts/lib/... To place the library acquired in other than NPM and Borew.
 scripts/mod/... To place the Module. fine function and, Expansion of the library.
 
 ### -styles
-
+...
 
 ## // 日本語で。
 webフロント開発の基礎です。
