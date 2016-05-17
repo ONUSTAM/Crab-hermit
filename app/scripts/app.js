@@ -3,7 +3,7 @@
   'use strict';
 
   // common
-  dispatcher("^/$",function(){
+  dispatcher('^/$', function(){
     $(function(){
       //
     });

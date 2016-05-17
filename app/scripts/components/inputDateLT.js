@@ -1,16 +1,16 @@
-// <p id="inputDateLt">
-//   <input type="text" id="yr">
-//   <input type="text" id="mn">
-//   <input type="text" id="dy">
+// <p Id="inputDateLt">
+//   <input type="text" Id="yr">
+//   <input type="text" Id="mn">
+//   <input type="text" Id="dy">
 // </p>
-function inputDateLT (Id, params) {
+function inputDateLT (scopeId) {
   'use strict';
 
   var YEAR_FOCUS_LEFT = 1000;
   var MONTH_FOCUS_LEFT = 2;
-  var yr = Id + ' .yr';
-  var mn = Id + ' .mn';
-  var dy = Id + ' .dy';
+  var yr = scopeId + ' .yr';
+  var mn = scopeId + ' .mn';
+  var dy = scopeId + ' .dy';
 
 
   // move left

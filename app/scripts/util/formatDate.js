@@ -9,7 +9,7 @@ function FormatDate (date, format) {
 
 	date = new Date(date);
 
-	if (!format) format = 'YYYY-MM-DD hh:mm:ss.SSS';
+	if (!format) { format = 'YYYY-MM-DD hh:mm:ss.SSS'; }
    format = format.replace(/YYYY/g, date.getFullYear());
    format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
    format = format.replace(/DD/g, ('0' + date.getDate()).slice(-2));
@@ -19,7 +19,7 @@ function FormatDate (date, format) {
    if (format.match(/S/g)) {
      var milliSeconds = ('00' + date.getMilliseconds()).slice(-3);
      var length = format.match(/S/g).length;
-     for (var i = 0; i < length; i++) format = format.replace(/S/, milliSeconds.substring(i, i + 1));
+     for (var i = 0; i < length; i++) { format = format.replace(/S/, milliSeconds.substring(i, i + 1)); }
    }
 
 	return format;
