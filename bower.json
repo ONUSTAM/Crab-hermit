@@ -5,11 +5,11 @@
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
     "jquery": "^2.2.3",
-    "underscore": "^1.8.3",
     "rxjs-jquery": "^1.1.7",
     "is_js": "^0.7.6",
     "moment": "^2.13.0",
-    "foundation-icon-fonts": "*"
+    "foundation-icon-fonts": "*",
+    "lodash": "^4.12.0"
   },
   "overrides": {
     "bootstrap-sass": {

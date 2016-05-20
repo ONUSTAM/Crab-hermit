@@ -1,5 +1,5 @@
 'use strict';
 
-function SplitPane (Id){
+function splitPane (Id){
   $(Id).splitPane();
 }

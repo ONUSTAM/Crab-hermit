@@ -34,17 +34,20 @@
     </div>
 
     <div class="row marketing">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <h4>uAgent()</h4>
         <p id="uAgent"></p>
+        <hr>
         <h4>DigitalClock(Id)</h4>
         <p id="digitalClock"></p>
+        <hr>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <h4>mixSpin</h4>
         <p><span class="glyphicon glyphicon-refresh spin"></span></p>
+        <hr>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <h4>RXJS</h4>
         <p>click + [alt]key -> console.log</p>
         <p><button id="btn" class="btn">click</button></p>
@@ -67,12 +70,15 @@
 
     <div class="footer">
       <div class="row marketing">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <p><a target="_blank" href="https://github.com/ONUSTAM/Crab-hermit"><i class="fi-social-github"></i> GitHub</a></p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <p><a target="_blank" href="http://zurb.com/playground/foundation-icon-fonts-3"><i class="fi-social-zurb"></i> foundation icon</a></p>
           <p><a target="_blank" href="http://momentjs.com/"><i class="fi-clock"></i> momentjs</a></p>
+        </div>
+        <div class="col-lg-12">
+          <p><a target="_blank" href="https://github.com/enja-oss/Underscore">Underscoreドキュメント日本語訳</a></p>
         </div>
       </div>
 
@@ -84,7 +90,7 @@
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/underscore/underscore.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
   <script src="/bower_components/rxjs/dist/rx.all.js"></script>
   <script src="/bower_components/rxjs-jquery/rx.jquery.js"></script>
   <script src="/bower_components/is_js/is.js"></script>
@@ -113,6 +119,8 @@
   <script src="scripts/util/uAgent.js"></script>
   <script src="scripts/util/formatDate.js"></script>
   <script src="scripts/components/clock.js"></script>
+  <script src="scripts/components/stylePicker.js"></script>
+  <script src="scripts/components/clickAltkey.js"></script>
   <script src="scripts/components/inputDateLT.js"></script>
   <script src="scripts/mod/splitPane.js"></script>
   <script src="scripts/com/viewCtr/componentsCtrl.js"></script>
