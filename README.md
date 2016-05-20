@@ -23,10 +23,12 @@ scripts/lib/... To place the library acquired in other than NPM and Borew.
 scripts/mod/... To place the Module. fine function and, Expansion of the library.
 
 ### -styles
-...
+sass.
+
 
 ## // 日本語で。
-webフロント開発の基礎です。
+汎用的にプロダクトに使うのライブラリのみを使用します。
+汎用的な部品の工作するところです。
 
 ## プラグイン
 * bootstrap
@@ -49,3 +51,4 @@ scripts/mod/... 細かい機能や、ライブラリの拡張。
 
 
 ### -styles
+sassでcss。
