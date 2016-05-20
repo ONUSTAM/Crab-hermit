@@ -74,7 +74,49 @@
       <div class="plC">
         <div class="split-pane fixed-top">
             <div class="split-pane-component" id="top-component">
-                This is the left component
+              <div class="customLayout" style="height: 100%;">
+                <div class="wrap" style="height: 100%;">
+                  <table
+                    class="table table-bordered table-hover table-condensed table-fixed"
+                    id="search-result">
+                    <thead>
+                      <tr>
+                        <th data-index="rowId" data-type="rowId">rowId</th>
+                        <th data-index="tmp1" class="text-center">userName</th>
+                        <th data-index="tmp2" class="text-center">sex</th>
+                        <th data-index="tmp3" class="text-center">type</th>
+                        <th data-index="tmp4" class="text-center">status</th>
+                        <th data-index="tmp5" class="text-center">updata_at</th>
+                        <th data-index="tmp6" class="text-center">_at</th>
+                        <!--<th data-index="tmp" class="text-center">カード発効日</th>-->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                      <tr><td>134567890</td><td>134567890</td><td>abcdefghijklmn</td><td>ABC</td><td>2016.12.12</td><td>1</td><td>2016.12.12</td></tr>
+                    </tbody>
+                  </table>
+                  <table id="list"></table>
+                </div>
+              </div>
             </div>
             <div class="split-pane-divider" id="split-divider"></div>
             <div class="split-pane-component" id="bottom-component">
@@ -116,11 +158,12 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
     <script src="/bower_components/rxjs/dist/rx.all.js"></script>
     <script src="/bower_components/rxjs-jquery/rx.jquery.js"></script>
     <script src="/bower_components/is_js/is.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -140,12 +183,21 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/app.js -->
+
+    <script src="scripts/lib/jquery.jqGrid.min.js"></script>
+    <script src="scripts/lib/i18n/grid.locale-ja.js"></script>
+    <script src="scripts/mod/jqGrid/jqGridFormat.js"></script>
+    <script src="scripts/mod/jqGrid/jqGridController.js"></script>
+
+
     <script src="scripts/lib/split-pane.min.js"></script>
     <script src="scripts/util/dispatcher.js"></script>
     <script src="scripts/util/uAgent.js"></script>
     <script src="scripts/util/formatDate.js"></script>
     <script src="scripts/components/clock.js"></script>
     <script src="scripts/mod/splitPane.js"></script>
+
+    <script src="scripts/com/viewCtr/splitlayoutCtrl.js"></script>
     <script src="scripts/com/viewCtr/componentsCtrl.js"></script>
     <script src="scripts/com/config.js"></script>
     <script src="scripts/app.js"></script>

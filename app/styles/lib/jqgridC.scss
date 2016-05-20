@@ -1,0 +1,21 @@
+.moveHeader {
+  position: absolute;
+  background-color: #ff00ff;
+  top: 0;
+  z-index: 999999;
+  user-select: none;
+
+  th {
+    opacity: .5;
+
+    &.active {
+      border: solid 2px #ff0000;
+    }
+    &.targetTh {
+
+      border: none;
+      background-color: blue;
+      opacity: .8;
+    }
+  }
+}

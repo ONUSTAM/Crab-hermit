@@ -19,6 +19,7 @@
   dispatcher(conf.viewPath.splitpaLayout, function(){
     (function(){
       splitPane('div.split-pane');
+      splitpaLayout();
     })();
   });
 
