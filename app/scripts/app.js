@@ -22,6 +22,11 @@
       splitpaLayout();
     })();
   });
+  dispatcher(conf.viewPath.tableSetting, function(){
+    (function(){
+      tablesettingCtrl();
+    })();
+  });
 
   // inputDateLt
   dispatcher(conf.viewPath.inputDateLt, function(){

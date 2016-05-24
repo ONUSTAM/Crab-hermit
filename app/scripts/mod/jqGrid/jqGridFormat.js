@@ -1,5 +1,5 @@
 // テーブルをjsonにフォーマットして返す
-var JqGridFormat = function(baseTable_Id, jqGrid_Id) {
+var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
   var Id = baseTable_Id;
   var jqGridId = jqGrid_Id;
   var tBase = $(Id);
@@ -9,6 +9,9 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id) {
   var datatBody = [];
   // checkboxの有無
   var isCheckbox = false;
+  // グリッドの順所、幅を設定
+  console.log('sForm::', sForm);
+  var settingForm = (sForm !== null) ? sForm : null;
 
   // tr配列を作る
   var createTR = function(table) {
@@ -24,8 +27,8 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id) {
 
     jQuery.each(thead, function(key, val) {
       var formatter;
-      var width
-      if($(val).attr('data-type') === 'checkbox'){
+      var width;
+      if( $(val).attr('data-type') === 'checkbox' ){
         isCheckbox = true;
         ary.push({
           label: "<div class='text-center abc'><input type='checkbox' id='checkAll' class='clmCheck' role='checkbox'/></div>",
@@ -146,12 +149,12 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id) {
 
         } else if(dataHead[keys].type === 'sutaffuListAction') {
             obj[dataHead[keys].index] = '<div class="col-sm-6">' +
-               '<button class="btn btn-info btn-block" data-target="#changePasswordModal" id="openChangePasswordModal">PW変更</button>' +
+              '<button class="btn btn-info btn-block" data-target="#changePasswordModal" id="openChangePasswordModal">PW変更</button>' +
               '</div>' +
               '<div class="col-sm-6">' +
                 '<button class="btn btn-danger btn-block" id="deleteStaff">削除</button>' +
               '</div>';
-        } else if(dataHead[keys].type === 'data'){
+        } else if(dataHead[keys].type === 'data') {
           obj[dataHead[keys].index] = $(vals).text();
 
         }
@@ -174,9 +177,67 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id) {
   }
 
 
+  var settingSortRow = function(dh) {
+    var sortR = [];
+    jQuery.each(settingForm.sortR , function(key, val){
+      console.log(key, val);
+
+      jQuery.each(dh, function(dhKey, dhVal){
+        if (dhVal.index === val) {
+          sortR.push(dhVal);
+        }
+      });
+    });
+    console.log(sortR);
+    return sortR;
+
+  };
+  var settingSellWidth = function() {};
+  var settingShowRow = function() {};
+
+  // 列の入れ替え
+  // 列の幅指定
+  var setSettingForm = function(dh) {
+    if(settingForm === null) { return ; }
+    var formatH = [];
+
+    // dh = settingSortRow(dh);
+    // settingSellWidth();
+    // settingShowRow();
+    // console.log(dh);
+    jQuery.each(settingForm, function(key, val) {
+      console.log(key, val);
+      jQuery.each(dh, function(dhKey, dhVal){
+        if (dhVal.index === key) {
+          if(val.width !== null) {
+            dhVal.width = val.width;
+          }
+
+          formatH.push(dhVal);
+        }
+      });
+    });
+
+    return formatH;
+  };
+  var getSettingForm = function() {
+    console.log('getSettingForm');
+    jQuery.each(dataHead, function(key, val){
+      console.log(key, val);
+    });
+
+  };
+
   dataHead = colModel(createTH(createTR(tHead), 'th'));
   datatBody = data(createTR(tBody), 'td');
+  console.log(dataHead);
   console.log(datatBody);
+  getSettingForm();
+  // setSettingForm(dataHead);
+  dataHead = setSettingForm(dataHead);
+  console.log('setting:', dataHead);
+
+
   return {
     datatype:     'local',
     colNames:     colNames(dataHead),

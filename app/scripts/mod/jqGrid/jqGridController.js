@@ -6,8 +6,9 @@ var JqGridController = function(conf) {
   var jqGridId = conf.jqGridId;
   // pageId
   var pageId = conf.pageId;
+  console.log(settingTMP[pageId], ";;;;;;;;;;;");
   // 元<table>をjsonに変換する
-  var jqGridFormat = JqGridFormat(baseTableId, jqGridId);
+  var jqGridFormat = JqGridFormat(baseTableId, jqGridId, settingTMP[pageId]);
   // 最後に選択した行データを保
   var selectedRow;
 
@@ -23,22 +24,13 @@ var JqGridController = function(conf) {
     $(jqGridId).jqGrid('setGridWidth', $('.customLayout .wrap').width(), true);
     $(jqGridId).jqGrid('setGridHeight',$('.customLayout .wrap').height()-30, true);
   };
+  //移動するオブジェクトと位置
+  var rowChange = function(trg, psition){
+    console.log('rowChange');
+    console.log(trg, psition, jqGridFormat);
+  };
 
   var rowMove = function(){
-    // $('.ui-jqgrid-labels th').draggable({
-    //   axis: "x"
-    //   containment: '.ui-jqgrid-labels',
-    //   snap: '.ui-jqgrid-labels',
-    //   start: function(){
-    //     console.log('start');
-    //   },
-    //   drag: function() {
-    //     console.log('grag');
-    //   },
-    //   stop: function() {
-    //     console.log('stop');
-    //   }
-    // });
     var moveFlg = false;
     var cloneHdr = null;
     var targetTh = null;
@@ -48,7 +40,7 @@ var JqGridController = function(conf) {
         .addClass('moveHeader')
         .on('mouseover', 'th', function(_e){
           $(this).addClass('active')
-          console.log('位置::', _e);
+          lastP = this;
         })
         .on('mouseout', 'th', function(_e){
           $(this).removeClass('active')
@@ -57,35 +49,41 @@ var JqGridController = function(conf) {
       return scp;
     };
     var setTargetTh = function(scp) {
-      console.log(scp);
-      lastP = scp;
-      // scp.
-      //   addClass('targetTh');
       return '#' + scp;
     };
+
     $('.ui-jqgrid-labels .ui-th-div').on('mouseover', function(_e){
       console.log('mouseover');
-      cloneHdr = setCloneHdrOpt($('.ui-jqgrid-htable').clone());
-      targetTh = setTargetTh($(this).closest('th').attr('id'));
+      cloneHdr = setCloneHdrOpt( $('.ui-jqgrid-htable').clone() );
+      targetTh = setTargetTh( $(this).closest('th').attr('id') );
       $('.ui-jqgrid-hbox').append(cloneHdr);
       var cTh = $(cloneHdr).find(targetTh)[0];
+
+      if(moveFlg) { return; }
+
       $(cTh).draggable({
-        axis: "x",
-        // containment: '.ui-jqgrid-labels',
-        // snap: '.ui-jqgrid-labels',
+        axis: 'x',
+        containment: '.moveHeader th',
         start: function(_e){
           moveFlg = true;
           $(cTh).addClass('targetTh');
           console.log('start');
         },
-        drag: function() {
-          console.log('grag');
+        drag: function(__e) {
+          console.log('drag------------------------');
         },
         stop: function(__e) {
-          console.log('stop------------------------', lastP);
+          rowChange(targetTh, $(lastP).attr('id'));
+
           $('.moveHeader').remove();
 
           moveFlg = false;
+        },
+      });
+      $('.moveHeader tr').droppable({
+        sccept: 'th',
+        drop: function(_e, ui) {
+          console.log('drop========================');
         }
       });
 
@@ -259,7 +257,7 @@ var JqGridController = function(conf) {
     setBody(bodyHtml);
     $('#gbox_list').remove();
     $('.wrap').append($('<table/>').attr('id', 'list'));
-    jqGridFormat = JqGridFormat(baseTableId, jqGridId);
+    jqGridFormat = JqGridFormat(baseTableId, jqGridId, settingTMP[pageId]);
 
     init();
   };
@@ -281,7 +279,7 @@ var JqGridController = function(conf) {
 
   // 変更された元テーブルからjqGridを再度生成する
   var reflesh = function() {
-    jqGridFormat = JqGridFormat(baseTableId, jqGridId);
+    jqGridFormat = JqGridFormat(baseTableId, jqGridId, settingTMP[pageId]);
 
     jQuery(jqGridId).jqGrid('setGridParam', {data: jqGridFormat.data});
     $(jqGridId).trigger("reloadGrid");

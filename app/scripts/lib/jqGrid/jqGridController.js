@@ -62,8 +62,6 @@ var JqGridController = function(conf) {
   };
 
 
-
-
   // mapで全てのチェック情報を返す
   var checkListMap = function(aRowIds, status) {
     var items;

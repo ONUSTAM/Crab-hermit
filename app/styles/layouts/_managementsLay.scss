@@ -54,3 +54,34 @@
 
   }
 }
+
+
+//jqGridHeaderEditor
+.dsp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  .dsp-table__cell {
+    display: table-cell;
+    float: none;
+    vertical-align: top;
+    padding-left: 0;
+    padding-right: 0;
+
+    .buttons {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    tr {
+      background-color: #fff;
+      &.selected {
+        background-color: #fff000;
+      }
+    }
+
+    .panel.panel-default {
+      height: 100%;
+    }
+  }
+}
