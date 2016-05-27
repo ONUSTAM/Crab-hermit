@@ -1,2 +1,2 @@
-'use strict';
-var msg = {};
+// 'use strict';
+// var msg = {};

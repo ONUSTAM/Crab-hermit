@@ -1,6 +1,9 @@
-/*eslint no-unused-vars: "error"*/
-var myFunc = function(){};
-myFunc(function foo() {
-
-  console.log('myFunc');
-}.bind(this));
+'use strict';
+function ClassE(){
+  //constructor
+}
+(function(p){
+  p.say = function(){
+    return 'ClassE !!!';
+  };
+})(ClassE.prototype);
