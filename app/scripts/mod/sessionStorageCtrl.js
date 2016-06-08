@@ -4,17 +4,17 @@ var SessionStorageCtrl = function (ssId) {
   var storageId = ssId;
 
   if(!('sessionStorage' in window)) {
-    console.log('Not Available');
+    // console.log('Not Available');
     // 使えない。。。
     return;
   }
 
-  console.log('aaaL:', {abc:'asv'} );
-  console.log('aaaL:', JSON.stringify({abc:'asv'}) );
-  sessionStorage_set(2);
-  console.log('get():: ', sessionStorage_get());
-  sessionStorage_clear();
-  console.log('get():: ', sessionStorage_get());
+  // console.log('aaaL:', {abc:'asv'} );
+  // console.log('aaaL:', JSON.stringify({abc:'asv'}) );
+  // sessionStorage_set(2);
+  // console.log('get():: ', sessionStorage_get());
+  // sessionStorage_clear();
+  // console.log('get():: ', sessionStorage_get());
 
   // セッションストレージ データの保存
   function sessionStorage_set (params) {
@@ -52,7 +52,7 @@ var SessionStorageCtrl = function (ssId) {
 
   // テーブルからデータを取得
   function table_get () {
-
+    return;
   }
 
   // テーブルにセッションストレージのデータを渡す
