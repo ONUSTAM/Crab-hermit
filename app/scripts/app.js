@@ -4,10 +4,8 @@
   'use strict';
   console.log('app');
 
-  // var classE = new ClassE();
-  // console.log( classE.say() );
-  var person = new Person('tom', 11);
-  person.sayHello();
+  // var person = new Person('tom', 11);
+  // person.sayHello();
 
   var ssCtrl = new SessionStorageCtrl('test');
   var ssCtrl2 = new SessionStorageCtrl('test');
