@@ -6,12 +6,27 @@ var JqGridController = function(conf) {
   var jqGridId = conf.jqGridId;
   // pageId
   var pageId = conf.pageId;
-  console.log(settingTMP[pageId], ";;;;;;;;;;;");
+
+  // checkboxが必要なテーブル
+  var getIsCheckbox = function() {
+
+  }
+
   // 元<table>をjsonに変換する
   var jqGridFormat = JqGridFormat(baseTableId, jqGridId, settingTMP[pageId]);
   // 最後に選択した行データを保
   var selectedRow;
 
+  //非表示項目の設定
+  var getHideCol = function() {
+    var hideList = [];
+    jQuery.each(settingTMP[pageId], function(key, val) {
+      if(!val.displayFlg) {
+        hideList.push(val.colNameEn);
+      }
+    });
+    return hideList;
+  };
 
   // ハイライトする
   var highlightRow = function(Id) {
@@ -21,112 +36,8 @@ var JqGridController = function(conf) {
 
   //テーブルのリサイズ
   var justSize = function() {
-    $(jqGridId).jqGrid('setGridWidth', $('.customLayout .wrap').width(), true);
+    $(jqGridId).jqGrid('setGridWidth', $('.customLayout .wrap').width(), false);
     $(jqGridId).jqGrid('setGridHeight',$('.customLayout .wrap').height()-30, true);
-  };
-  //移動するオブジェクトと位置
-  var rowChange = function(trg, psition){
-    console.log('rowChange');
-    console.log(trg, psition, jqGridFormat);
-  };
-
-  var rowMove = function(){
-    var moveFlg = false;
-    var cloneHdr = null;
-    var targetTh = null;
-    var lastP = null;
-    var setCloneHdrOpt = function(scp) {
-      scp
-        .addClass('moveHeader')
-        .on('mouseover', 'th', function(_e){
-          $(this).addClass('active')
-          lastP = this;
-        })
-        .on('mouseout', 'th', function(_e){
-          $(this).removeClass('active')
-        });
-
-      return scp;
-    };
-    var setTargetTh = function(scp) {
-      return '#' + scp;
-    };
-
-    $('.ui-jqgrid-labels .ui-th-div').on('mouseover', function(_e){
-      console.log('mouseover');
-      cloneHdr = setCloneHdrOpt( $('.ui-jqgrid-htable').clone() );
-      targetTh = setTargetTh( $(this).closest('th').attr('id') );
-      $('.ui-jqgrid-hbox').append(cloneHdr);
-      var cTh = $(cloneHdr).find(targetTh)[0];
-
-      if(moveFlg) { return; }
-
-      $(cTh).draggable({
-        axis: 'x',
-        containment: '.moveHeader th',
-        start: function(_e){
-          moveFlg = true;
-          $(cTh).addClass('targetTh');
-          console.log('start');
-        },
-        drag: function(__e) {
-          console.log('drag------------------------');
-        },
-        stop: function(__e) {
-          rowChange(targetTh, $(lastP).attr('id'));
-
-          $('.moveHeader').remove();
-
-          moveFlg = false;
-        },
-      });
-      $('.moveHeader tr').droppable({
-        sccept: 'th',
-        drop: function(_e, ui) {
-          console.log('drop========================');
-        }
-      });
-
-    });
-    $('.ui-jqgrid-hdiv').on('mouseout', '.moveHeader .ui-th-div', function(_e){
-      if(!moveFlg) {
-        console.log('mouseout--------------------------', lastP);
-        $('.moveHeader').remove();
-
-      }
-    });
-    // $('.ui-jqgrid-labels').on('mousemove', function(_e){
-    //   if (moveFlg) {
-    //     // console.log( _e.pageX );
-    //     // console.log(cloneHdr);
-    //
-    //     $('.ui-jqgrid-hbox')
-    //       .append(cloneHdr);
-    //       console.log(targetTh);
-    //     var cTh = $(cloneHdr).find(targetTh)[0];
-    //     console.log(cTh);
-    //     $(cTh).draggable({
-    //       axis: "x"
-    //       // containment: '.ui-jqgrid-labels',
-    //       // snap: '.ui-jqgrid-labels',
-    //       // start: function(){
-    //       //   console.log('start');
-    //       // },
-    //       // drag: function() {
-    //       //   console.log('grag');
-    //       // },
-    //       // stop: function() {
-    //       //   console.log('stop');
-    //       // }
-    //     });
-    //   }
-    // });
-    // $('.ui-jqgrid-labels .ui-th-div').on('mouseup', function(_e){
-    //
-    //   moveFlg = false;
-    // });
-
-
   };
 
 
@@ -134,7 +45,8 @@ var JqGridController = function(conf) {
   var loadComplete = function() {
     // cssClassを追加
     jQuery(jqGridId)
-      .jqGrid('hideCol', 'rowId')
+      .hideCol('rowId')
+      .hideCol(getHideCol())
       .addClass('table')
       .addClass('table-bordered')
       .addClass('table-hover');
@@ -155,7 +67,6 @@ var JqGridController = function(conf) {
     $('.row_checkbox').on('click', function(_e) {
       checkboxClick_( $(_e.target).prop('checked'), $(_e.target).closest('tr') );
     });
-    rowMove();
 
     // テーブルのサイズを調整
     justSize();

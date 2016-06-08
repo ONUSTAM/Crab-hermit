@@ -10,7 +10,6 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
   // checkboxの有無
   var isCheckbox = false;
   // グリッドの順所、幅を設定
-  console.log('sForm::', sForm);
   var settingForm = (sForm !== null) ? sForm : null;
 
   // tr配列を作る
@@ -123,7 +122,6 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
           // console.log('patronId::', patronId);
           // console.log('enable::', enable);
           var btn_patronId = '';
-          console.log('patronId:', patronId);
           if(patronId){
             btn_patronId = '<button class="btn btn-block btn-primary" id="unlinkCard">リンク解除</button>';
           }
@@ -176,42 +174,38 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
     return ary;
   }
 
-
-  var settingSortRow = function(dh) {
-    var sortR = [];
-    jQuery.each(settingForm.sortR , function(key, val){
-      console.log(key, val);
-
-      jQuery.each(dh, function(dhKey, dhVal){
-        if (dhVal.index === val) {
-          sortR.push(dhVal);
-        }
-      });
-    });
-    console.log(sortR);
-    return sortR;
-
-  };
-  var settingSellWidth = function() {};
-  var settingShowRow = function() {};
-
   // 列の入れ替え
+  // dh = dataHead
+  var settingSortRow = function(dh) {
+    dh.sort(function(val1, val2) {
+      return val1.sortOrder - val2.sortOrder;
+    });
+    return dh;
+  };
+
+  var settingSellWidth = function(w) {
+    if(w) {
+      return w;
+    } else {
+      return null;
+    }
+  }
+
   // 列の幅指定
+  // dh = dataHead
   var setSettingForm = function(dh) {
     if(settingForm === null) { return ; }
     var formatH = [];
 
-    // dh = settingSortRow(dh);
-    // settingSellWidth();
-    // settingShowRow();
-    // console.log(dh);
+    formatH.push(dh[0]);
     jQuery.each(settingForm, function(key, val) {
-      console.log(key, val);
+
       jQuery.each(dh, function(dhKey, dhVal){
-        if (dhVal.index === key) {
-          if(val.width !== null) {
-            dhVal.width = val.width;
-          }
+        if (dhVal.index === val.colNameEn) {
+          // console.log(val, dhVal);
+          dhVal.sortOrder = val.sortOrder;
+          dhVal.width = settingSellWidth(val.colWidth);
+          dhVal.label = val.colNameJp;
 
           formatH.push(dhVal);
         }
@@ -220,21 +214,11 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
 
     return formatH;
   };
-  var getSettingForm = function() {
-    console.log('getSettingForm');
-    jQuery.each(dataHead, function(key, val){
-      console.log(key, val);
-    });
-
-  };
 
   dataHead = colModel(createTH(createTR(tHead), 'th'));
   datatBody = data(createTR(tBody), 'td');
-  console.log(dataHead);
-  console.log(datatBody);
-  getSettingForm();
   // setSettingForm(dataHead);
-  dataHead = setSettingForm(dataHead);
+  dataHead = settingSortRow( setSettingForm(dataHead) );
   console.log('setting:', dataHead);
 
 
@@ -246,12 +230,11 @@ var JqGridFormat = function(baseTable_Id, jqGrid_Id, sForm) {
     width:        null,
     height:       '300',
     rowNum:       2000,
-    shrinkToFit:  true,
+    shrinkToFit:  false,
     // multiselect:  true,// テーブルにチェックボックスを表示(自前で用意する)
     viewrecords:  true,
     hoverrows:    true,
     loadonce:     true,
-    hideCol:      'rowId',
     isCheckbox:   isCheckbox
     // loadComplete: loadComplete, // 初期処理
     // onSelectRow:  selectRow,    // チェックボックスがクリックされた
