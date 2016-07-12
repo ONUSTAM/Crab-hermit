@@ -9,7 +9,7 @@ Foundation of webfront development.
 * solit-panel.js
 
 ## setting
-...
+....
 
 ## Rule Description
 
